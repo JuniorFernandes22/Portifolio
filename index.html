@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="pt-pt" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Júnior Fernandes | Software Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #030712;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    /* Melhorias nas animações */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(59,130,246,0.5)); }
+      50% { filter: drop-shadow(0 0 20px rgba(45,212,191,0.5)); }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59,130,246,0.7); }
+      50% { transform: scale(1.2); box-shadow: 0 0 20px 10px rgba(59,130,246,0.3); }
+    }
+
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes bounce-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Classes de animação */
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-glow {
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .animate-spin-slow {
+      animation: spin-slow 20s linear infinite;
+    }
+
+    .animate-bounce-slow {
+      animation: bounce-slow 3s ease-in-out infinite;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #3b82f6, #2dd4bf, #8b5cf6, #3b82f6);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+    }
+
+    /* Transições de página */
+    .page-transition {
+      animation: scaleIn 0.6s ease-out;
+    }
+
+    /* Scrollbar personalizada */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111827;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #3b82f6, #2dd4bf);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #2563eb, #14b8a6);
+    }
+
+    /* Cards com efeito glassmorphism melhorado */
+    .glass-card {
+      background: rgba(17, 25, 40, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.7s ease;
+    }
+
+    .glass-card:hover::before {
+      left: 100%;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Navegação com efeito melhorado */
+    .nav-link {
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #2dd4bf);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    .nav-link.active {
+      color: #2dd4bf;
+      font-weight: 600;
+    }
+
+    /* Botão flutuante com efeito melhorado */
+    .float-btn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #3b82f6, #2dd4bf);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 1000;
+      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
+    }
+
+    .float-btn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.1) rotate(360deg);
+      box-shadow: 0 20px 35px -5px rgba(45, 212, 191, 0.7);
+    }
+
+    /* Partículas de fundo melhoradas */
+    .particle {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .particle span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 50%;
+      animation: particleFloat 10s linear infinite;
+    }
+
+    /* Timeline animada */
+    .timeline-item {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.8s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, #3b82f6, #2dd4bf);
+      border-radius: 50%;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+
+    /* Hero Section com overlay melhorado */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 0%, #030712 100%);
+      mix-blend-mode: multiply;
+    }
+
+    /* Loading progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #2dd4bf, #8b5cf6);
+      z-index: 1001;
+      transition: width 0.3s ease;
+    }
+
+    /* Estatísticas em tempo real */
+    .stat-card {
+      background: rgba(17, 25, 40, 0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(59,130,246,0.5);
+      transform: translateY(-5px);
+    }
+
+    /* Efeito de digitação */
+    .typing-effect {
+      border-right: 3px solid #3b82f6;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #3b82f6; }
+    }
+
+    /* Responsividade aprimorada */
+    @media (max-width: 768px) {
+      .glass-card:hover {
+        transform: translateY(-5px) scale(1.01);
+      }
+      
+      .typing-effect {
+        white-space: normal;
+        border-right: none;
+        animation: none;
+      }
+    }
+
+    /* Loading skeleton */
+    .skeleton {
+      background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Partículas de fundo -->
+  <div class="particle" id="particles"></div>
+
+  <!-- Navegação Moderna Melhorada -->
+  <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-5xl">
+    <div class="glass-card rounded-2xl px-8 py-4">
+      <div class="flex justify-between items-center">
+        <span class="text-2xl font-black gradient-text hover:scale-110 transition-transform cursor-pointer">JF.dev</span>
+        <div class="hidden md:flex space-x-8">
+          <a href="#sobre" class="nav-link text-sm font-medium transition">Sobre</a>
+          <a href="#experiencia" class="nav-link text-sm font-medium transition">Exp.</a>
+          <a href="#formacao" class="nav-link text-sm font-medium transition">Formação</a>
+          <a href="#skills" class="nav-link text-sm font-medium transition">Skills</a>
+          <a href="#conhecimentos" class="nav-link text-sm font-medium transition">Conhecimentos</a>
+          <a href="#contacto" class="nav-link text-sm font-medium transition">Contacto</a>
+        </div>
+        <button class="md:hidden text-2xl" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden mt-4 flex flex-col space-y-4 py-4 border-t border-slate-700">
+        <a href="#sobre" class="nav-link text-sm font-medium" onclick="closeMobileMenu()">Sobre</a>
+        <a href="#experiencia" class="nav-link text-sm font-medium" onclick="closeMobileMenu()">Experiência</a>
+        <a href="#formacao" class="nav-link text-sm font-medium" onclick="closeMobileMenu()">Formação</a>
+        <a href="#skills" class="nav-link text-sm font-medium" onclick="closeMobileMenu()">Skills</a>
+        <a href="#conhecimentos" class="nav-link text-sm font-medium" onclick="closeMobileMenu()">Conhecimentos</a>
+        <a href="#contacto" class="nav-link text-sm font-medium" onclick="closeMobileMenu()">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section Melhorado -->
+  <section id="sobre" class="min-h-screen relative flex items-center justify-center overflow-hidden">
+    <div class="hero-overlay"></div>
+
+    <!-- Elementos decorativos flutuantes -->
+    <div class="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-20 right-10 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+    
+    <!-- Círculos rotativos -->
+    <div class="absolute top-1/4 right-1/4 w-32 h-32 border-2 border-blue-500/20 rounded-full animate-spin-slow"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-48 h-48 border-2 border-teal-500/20 rounded-full animate-spin-slow" style="animation-direction: reverse;"></div>
+
+    <div class="absolute inset-0 z-0">
+      <img src="assets/sobre.png" alt="Background" class="w-full h-full object-cover opacity-30" style="filter: blur(2px);" />
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030712]"></div>
+    </div>
+
+    <div class="relative z-10 px-6 max-w-7xl mx-auto page-transition flex flex-col md:flex-row items-center md:items-start gap-12 pt-32 md:pt-40">
+      
+      <!-- Texto com efeito de digitação -->
+      <div class="flex-1 text-left max-w-xl">
+        <p class="text-blue-400 font-semibold mb-4 animate-bounce-slow">👋 Bem-vindo ao meu portfólio</p>
+        <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          Olá, eu sou <br />
+          <span class="gradient-text text-6xl md:text-8xl">Júnior Fernandes</span>
+        </h1>
+
+        <div class="text-xl md:text-2xl text-slate-300 mb-6 h-20">
+          <span class="typing-effect inline-block" id="typing-text">Desenvolvedor Full Stack</span>
+        </div>
+
+        <p class="text-lg text-slate-300 mb-6 leading-relaxed">
+          Desenvolvedor de Software especializado em criar soluções robustas de Backend e 
+          interfaces modernas. Tenho também conhecimento em Elasticsearch e Kibana para análise e visualização de dados.
+        </p>
+
+        <p class="text-lg text-slate-300 leading-relaxed">
+          Possuo carta de condução, o que facilita deslocações e compromissos profissionais.
+        </p>
+
+        <!-- Estatísticas em tempo real -->
+        <div class="grid grid-cols-3 gap-4 mt-8">
+          <div class="stat-card p-4 rounded-xl text-center">
+            <div class="text-2xl font-bold gradient-text" id="yearsExp">3+</div>
+            <div class="text-xs text-slate-400">Anos de Experiência</div>
+          </div>
+          <div class="stat-card p-4 rounded-xl text-center">
+            <div class="text-2xl font-bold gradient-text" id="projectsDone">10+</div>
+            <div class="text-xs text-slate-400">Projetos Entregues</div>
+          </div>
+          <div class="stat-card p-4 rounded-xl text-center">
+            <div class="text-2xl font-bold gradient-text" id="happyClients">5+</div>
+            <div class="text-xs text-slate-400">Clientes Satisfeitos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foto + Botões com melhorias -->
+      <div class="flex flex-col items-center md:items-start gap-6 mt-16 md:mt-20">
+        <!-- Foto com moldura animada -->
+        <div class="relative inline-block animate-float w-48 h-48 md:w-64 md:h-64">
+          <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-teal-400 blur-3xl opacity-50 animate-pulse"></div>
+          
+          <!-- Anel rotativo ao redor da foto -->
+          <div class="absolute -inset-3 rounded-full border-2 border-dashed border-blue-500/30 animate-spin-slow"></div>
+
+          <img
+            src="assets/perfil.png"
+            alt="Júnior Fernandes"
+            class="relative w-full h-full rounded-full object-cover border-4 border-transparent bg-gradient-to-r from-blue-500 to-teal-400 p-1 animate-glow"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Botões melhorados -->
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+          <a
+            href="#contacto"
+            class="group relative px-8 py-4 rounded-xl font-semibold overflow-hidden"
+          >
+            <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-500 transition-transform group-hover:scale-105"></span>
+            <span class="relative text-white flex items-center gap-2">
+              Contrate-me
+              <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </a>
+
+          <a
+            href="Junior.pdf"
+            target="_blank"
+            class="glass-card px-8 py-4 rounded-xl font-semibold flex items-center gap-2 hover:border-blue-500 group"
+          >
+            <i class="fas fa-download group-hover:animate-bounce"></i> Ver Currículo
+          </a>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="flex gap-4 mt-4">
+          <a href="https://github.com" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiência Profissional Melhorada -->
+<!-- Experiência Profissional Melhorada -->
+<section id="experiencia" class="py-32 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-black mb-4 text-center">
+      <span class="gradient-text">Trajetória Profissional</span>
+    </h2>
+    <p class="text-center text-slate-400 mb-16 max-w-2xl mx-auto">Minha jornada no desenvolvimento de software e contribuições para projetos inovadores</p>
+
+    <!-- Grid melhorado com animações de entrada -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card NosZona -->
+      <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <i class="fas fa-lightbulb text-white"></i>
+          </div>
+          <span class="text-sm text-slate-400">2024 - Presente</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Founder & CEO</h3>
+        <p class="text-teal-400 mb-2">NosZona</p>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-2">
+            <i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i>
+            Startup selecionada entre os Tops 10 Startups promissoras no concurso de 2025 "Cabo Verde Digital" entre 60+ projetos.
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i>
+            Desenvolvimento Full Stack e definição da estratégia de produto.
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i>
+            Gestão de equipe e relacionamento com stakeholders.
+          </li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="px-2 py-1 bg-teal-500/10 rounded text-xs text-teal-400">Startup</span>
+          <span class="px-2 py-1 bg-teal-500/10 rounded text-xs text-teal-400">Full Stack</span>
+          <span class="px-2 py-1 bg-teal-500/10 rounded text-xs text-teal-400">Liderança</span>
+        </div>
+      </div>
+
+      <!-- Card VEKTRA -->
+      <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <i class="fas fa-rocket text-white"></i>
+          </div>
+          <span class="text-sm text-slate-400">2023 - Presente</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Co-Founder & CTO</h3>
+        <p class="text-blue-400 mb-2">VEKTRA</p>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-2">
+            <i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i>
+            Definição da arquitetura de sistemas e stack tecnológica.
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i>
+            Liderança técnica de equipes de desenvolvimento.
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i>
+            Desenvolvimento de soluções escaláveis e inovadoras.
+          </li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="px-2 py-1 bg-blue-500/10 rounded text-xs text-blue-400">CTO</span>
+          <span class="px-2 py-1 bg-blue-500/10 rounded text-xs text-blue-400">Arquitetura</span>
+          <span class="px-2 py-1 bg-blue-500/10 rounded text-xs text-blue-400">Scalability</span>
+        </div>
+      </div>
+
+      <!-- Card Caixa Económica -->
+      <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <i class="fas fa-university text-white"></i>
+          </div>
+          <span class="text-sm text-slate-400">2023 - Presente</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Programador de Software</h3>
+        <p class="text-blue-400 mb-2">Caixa Económica de Cabo Verde</p>
+        <p class="text-sm text-slate-400 mb-4">Projeto: <span class="text-teal-400 font-semibold">KnowHow</span></p>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Desenvolvimento do frontend da plataforma <b>KnowHow</b>.</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Criação de interfaces modernas com <b>React.js</b> e <b>Material UI</b>.</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Implementação de componentes reutilizáveis e melhoria UX.</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Gestão de conteúdos técnicos internos.</li>
+        </ul>
+      
+        <!-- Tags de tecnologia -->
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="px-2 py-1 bg-blue-500/10 rounded text-xs text-blue-400">React</span>
+          <span class="px-2 py-1 bg-blue-500/10 rounded text-xs text-blue-400">Material UI</span>
+          <span class="px-2 py-1 bg-blue-500/10 rounded text-xs text-blue-400">JavaScript</span>
+        </div>
+      </div>
+
+      <!-- Card Banco Económico -->
+      <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <i class="fas fa-building text-white"></i>
+          </div>
+          <span class="text-sm text-slate-400">2022 - 2023</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Programador de Software</h3>
+        <p class="text-purple-400 mb-2">Banco Económico (NOSI Akademia)</p>
+        <p class="text-sm text-slate-400 mb-4">Projeto: <span class="text-teal-400 font-semibold">Caixa Pay</span></p>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Desenvolvimento backend para transferências instantâneas.</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> APIs REST seguras com <b>Java</b> e <b>Spring Boot</b> + JWT.</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Gestão de transações financeiras com <b>PostgreSQL</b>.</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Evolução de serviços de pagamentos digitais.</li>
+        </ul>
+      
+        <!-- Tags de tecnologia -->
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="px-2 py-1 bg-purple-500/10 rounded text-xs text-purple-400">Java</span>
+          <span class="px-2 py-1 bg-purple-500/10 rounded text-xs text-purple-400">Spring Boot</span>
+          <span class="px-2 py-1 bg-purple-500/10 rounded text-xs text-purple-400">PostgreSQL</span>
+        </div>
+      </div>
+
+      <!-- Card OpenTec -->
+      <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="400">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <i class="fas fa-chart-line text-white"></i>
+          </div>
+          <span class="text-sm text-slate-400">2021 - 2022</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Analista de Sistemas</h3>
+        <p class="text-green-400 mb-2">OpenTec (com suporte da NOSI)</p>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Análise do sistema SIGE.</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Migração para plataforma IGRP da NOSI.</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Elaboração de relatórios técnicos da base de dados.</li>
+        </ul>
+      
+        <!-- Tags de tecnologia -->
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="px-2 py-1 bg-green-500/10 rounded text-xs text-green-400">Análise</span>
+          <span class="px-2 py-1 bg-green-500/10 rounded text-xs text-green-400">IGRP</span>
+          <span class="px-2 py-1 bg-green-500/10 rounded text-xs text-green-400">SQL</span>
+        </div>
+      </div>
+
+      <!-- Card CERMI -->
+      <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="500">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <i class="fas fa-chalkboard-teacher text-white"></i>
+          </div>
+          <span class="text-sm text-slate-400">2020 - 2021</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Formador</h3>
+        <p class="text-yellow-400 mb-2">CERMI - Praia</p>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Lecionei o módulo "Competência de Empreender".</li>
+          <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 group-hover:translate-x-1 transition-transform"></i> Uso de metodologias pedagógicas ativas, incluindo estudo de casos.</li>
+        </ul>
+      
+        <!-- Tags de tecnologia -->
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="px-2 py-1 bg-yellow-500/10 rounded text-xs text-yellow-400">Ensino</span>
+          <span class="px-2 py-1 bg-yellow-500/10 rounded text-xs text-yellow-400">Mentoria</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Formação Acadêmica Melhorada -->
+  <section id="formacao" class="py-32 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-black mb-4 text-center">
+        <span class="gradient-text">Formação</span>
+      </h2>
+      <p class="text-center text-slate-400 mb-16 max-w-2xl mx-auto">Minha jornada acadêmica e certificações profissionais</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Licenciatura em Informática de Gestão -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-right">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+              <i class="fas fa-graduation-cap text-2xl text-white"></i>
+            </div>
+            <div class="w-full">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-2xl font-bold">Licenciatura em Informática de Gestão</h3>
+                <span class="text-sm text-slate-400 bg-slate-800 px-3 py-1 rounded-full">2020 - 2024</span>
+              </div>
+              <p class="text-blue-400 mb-1">Universidade Jean Piaget de Cabo Verde</p>
+              <a href="https://www.unipiaget.edu.cv/" target="_blank" class="text-xs text-slate-500 hover:text-blue-300 transition mb-4 inline-block">
+                <i class="fas fa-link mr-1"></i> unipiaget.edu.cv
+              </a>
+              
+              <div class="space-y-2 text-sm text-slate-300 border-t border-slate-700/50 pt-4">
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Análise, conceção e implementação de sistemas de informação.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Programação em várias linguagens e frameworks.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Gestão de bases de dados relacionais e modelação de dados.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Desenvolvimento de aplicações web e mobile.</p>
+              </div>
+
+              <!-- Média/Créditos -->
+              <div class="mt-4 flex items-center gap-4">
+                <div class="flex items-center gap-1">
+                  <i class="fas fa-star text-yellow-500 text-xs"></i>
+                  <span class="text-xs text-slate-400">Média: 16/20</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <i class="fas fa-clock text-blue-500 text-xs"></i>
+                  <span class="text-xs text-slate-400">240 Créditos ECTS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formação Pedagógica Inicial -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-left">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+              <i class="fas fa-chalkboard-teacher text-2xl text-white"></i>
+            </div>
+            <div class="w-full">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-2xl font-bold">Formação Pedagógica Inicial</h3>
+                <span class="text-sm text-slate-400 bg-slate-800 px-3 py-1 rounded-full">2023</span>
+              </div>
+              <p class="text-yellow-400 mb-4">Jean Piaget University of Cape Verde</p>
+              
+              <div class="space-y-2 text-sm text-slate-300 border-t border-slate-700/50 pt-4">
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i> Fundamentos teóricos e práticos da educação e ensino.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i> Planeamento e gestão de atividades pedagógicas.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i> Desenvolvimento de estratégias de aprendizagem adaptadas.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i> Avaliação de desempenho e progresso de aprendentes.</p>
+              </div>
+
+              <!-- Certificação -->
+              <div class="mt-4">
+                <span class="px-3 py-1 bg-yellow-500/10 rounded-full text-xs text-yellow-400">Certificado pelo MEC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso em Inteligência Artificial -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-right" data-aos-delay="100">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+              <i class="fas fa-robot text-2xl text-white"></i>
+            </div>
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-2xl font-bold">Inteligência Artificial</h3>
+                <span class="text-sm text-slate-400 bg-slate-800 px-3 py-1 rounded-full">2024</span>
+              </div>
+              <p class="text-teal-400 mb-4">IBM SkillsBuild (NOSi Akademia)</p>
+              <div class="space-y-2 text-slate-300">
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1"></i> Machine Learning e Redes Neurais.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1"></i> Ética em IA e aplicações práticas.</p>
+              </div>
+              
+              <!-- Badge IBM -->
+              <div class="mt-4">
+                <img src="https://img.icons8.com/color/48/000000/ibm.png" alt="IBM" class="w-8 h-8 opacity-50 grayscale hover:grayscale-0 transition-all">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formações Complementares -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-left" data-aos-delay="100">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+              <i class="fas fa-users-cog text-2xl text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-2">Soft Skills & Capacitação</h3>
+              <p class="text-blue-400 mb-1">NOSI – Akademia de Capacitação</p>
+              <p class="text-xs text-slate-500">Desenvolvimento de Competências Comportamentais</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+              <i class="fas fa-brain text-pink-400 text-xs"></i> <span class="text-xs">Inteligência Emocional</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+              <i class="fas fa-lightbulb text-yellow-400 text-xs"></i> <span class="text-xs">Arte de Criar e Inovar</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+              <i class="fas fa-comments text-blue-400 text-xs"></i> <span class="text-xs">Arte de Comunicar</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+              <i class="fas fa-rocket text-orange-400 text-xs"></i> <span class="text-xs">Empreendedorismo</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+              <i class="fas fa-leaf text-green-400 text-xs"></i> <span class="text-xs">Gestão de Stress</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+              <i class="fas fa-globe text-purple-400 text-xs"></i> <span class="text-xs">International Career</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills com Cards Interativos Melhorados -->
+  <section id="skills" class="py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-black mb-4 text-center">
+        <span class="gradient-text">Stack Tecnológico</span>
+      </h2>
+      <p class="text-center text-slate-400 mb-16 max-w-2xl mx-auto">Tecnologias que domino e utilizo no meu dia a dia</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Backend Card Melhorado -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="zoom-in">
+          <div class="relative mb-6">
+            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
+              <i class="fas fa-server text-3xl text-white"></i>
+            </div>
+            <!-- Círculo pulsante -->
+            <div class="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full animate-pulse"></div>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Backend</h3>
+          
+          <!-- Barras de progresso das skills -->
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Java/Spring Boot</span>
+                <span class="text-blue-400">90%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>REST APIs</span>
+                <span class="text-blue-400">95%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>PostgreSQL</span>
+                <span class="text-blue-400">85%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 justify-center">
+            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-400">Java</span>
+            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-400">Spring Boot</span>
+            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-400">REST APIs</span>
+            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-400">JWT</span>
+            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-400">PostgreSQL</span>
+            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-400">MongoDB</span>
+            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-400">Elasticsearch</span>
+            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-400">Kibana</span>
+          </div>
+        </div>
+
+        <!-- Frontend Card Melhorado -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="zoom-in" data-aos-delay="100">
+          <div class="relative mb-6">
+            <div class="w-20 h-20 bg-gradient-to-br from-teal-500 to-green-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
+              <i class="fas fa-code text-3xl text-white"></i>
+            </div>
+            <div class="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full animate-pulse"></div>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Frontend</h3>
+          
+          <!-- Barras de progresso das skills -->
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>React.js</span>
+                <span class="text-teal-400">85%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-teal-500 to-green-500 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>TypeScript</span>
+                <span class="text-teal-400">80%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-teal-500 to-green-500 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Tailwind CSS</span>
+                <span class="text-teal-400">90%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-teal-500 to-green-500 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 justify-center">
+            <span class="px-3 py-1 bg-teal-500/20 rounded-full text-sm text-teal-400">React.js</span>
+            <span class="px-3 py-1 bg-teal-500/20 rounded-full text-sm text-teal-400">TypeScript</span>
+            <span class="px-3 py-1 bg-teal-500/20 rounded-full text-sm text-teal-400">Tailwind</span>
+            <span class="px-3 py-1 bg-teal-500/20 rounded-full text-sm text-teal-400">Material UI</span>
+            <span class="px-3 py-1 bg-teal-500/20 rounded-full text-sm text-teal-400">Next.js</span>
+          </div>
+        </div>
+
+        <!-- DevOps Card Melhorado -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="zoom-in" data-aos-delay="200">
+          <div class="relative mb-6">
+            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
+              <i class="fas fa-cloud text-3xl text-white"></i>
+            </div>
+            <div class="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full animate-pulse"></div>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">DevOps</h3>
+          
+          <!-- Barras de progresso das skills -->
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Docker</span>
+                <span class="text-purple-400">75%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>GitHub Actions</span>
+                <span class="text-purple-400">70%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>AWS</span>
+                <span class="text-purple-400">65%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 65%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 justify-center">
+            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm text-purple-400">Docker</span>
+            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm text-purple-400">GitHub Actions</span>
+            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm text-purple-400">Jenkins</span>
+            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm text-purple-400">AWS</span>
+            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm text-purple-400">Kubernetes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conhecimentos Técnicos Melhorados -->
+  <section id="conhecimentos" class="py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-black mb-4 text-center">
+        <span class="gradient-text">Conhecimentos Técnicos</span>
+      </h2>
+      <p class="text-center text-slate-400 mb-16 max-w-2xl mx-auto">Especializações e áreas de expertise</p>
+
+      <!-- Grid melhorado com ícones e descrições -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Backend com descrição -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-server text-2xl text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">Backend</h3>
+              <p class="text-xs text-slate-400">Lógica de negócios e APIs</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Java</span>
+              </div>
+              <span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full text-blue-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Spring Boot</span>
+              </div>
+              <span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full text-blue-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>REST APIs</span>
+              </div>
+              <span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full text-blue-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>JWT Authentication</span>
+              </div>
+              <span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full text-blue-400">Intermediário</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Frontend com descrição -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-code text-2xl text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">Frontend</h3>
+              <p class="text-xs text-slate-400">Interfaces responsivas e modernas</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>React.js</span>
+              </div>
+              <span class="text-xs bg-purple-500/20 px-2 py-1 rounded-full text-purple-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Material UI</span>
+              </div>
+              <span class="text-xs bg-purple-500/20 px-2 py-1 rounded-full text-purple-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>HTML5/CSS3</span>
+              </div>
+              <span class="text-xs bg-purple-500/20 px-2 py-1 rounded-full text-purple-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Tailwind CSS</span>
+              </div>
+              <span class="text-xs bg-purple-500/20 px-2 py-1 rounded-full text-purple-400">Avançado</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Base de Dados -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-database text-2xl text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">Base de Dados</h3>
+              <p class="text-xs text-slate-400">Modelagem e otimização</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>PostgreSQL</span>
+              </div>
+              <span class="text-xs bg-green-500/20 px-2 py-1 rounded-full text-green-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>SQL</span>
+              </div>
+              <span class="text-xs bg-green-500/20 px-2 py-1 rounded-full text-green-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>MongoDB</span>
+              </div>
+              <span class="text-xs bg-green-500/20 px-2 py-1 rounded-full text-green-400">Intermediário</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Observabilidade -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-chart-line text-2xl text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">Observabilidade</h3>
+              <p class="text-xs text-slate-400">Análise e monitoramento</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Elasticsearch</span>
+              </div>
+              <span class="text-xs bg-yellow-500/20 px-2 py-1 rounded-full text-yellow-400">Intermediário</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Kibana</span>
+              </div>
+              <span class="text-xs bg-yellow-500/20 px-2 py-1 rounded-full text-yellow-400">Intermediário</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Ferramentas -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-tools text-2xl text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">Ferramentas</h3>
+              <p class="text-xs text-slate-400">Desenvolvimento e automação</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Git / GitHub</span>
+              </div>
+              <span class="text-xs bg-orange-500/20 px-2 py-1 rounded-full text-orange-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Docker</span>
+              </div>
+              <span class="text-xs bg-orange-500/20 px-2 py-1 rounded-full text-orange-400">Intermediário</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Swagger</span>
+              </div>
+              <span class="text-xs bg-orange-500/20 px-2 py-1 rounded-full text-orange-400">Intermediário</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Metodologias -->
+        <div class="glass-card p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-project-diagram text-2xl text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">Metodologias</h3>
+              <p class="text-xs text-slate-400">Gestão e organização</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Agile / Scrum</span>
+              </div>
+              <span class="text-xs bg-teal-500/20 px-2 py-1 rounded-full text-teal-400">Avançado</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>API First Design</span>
+              </div>
+              <span class="text-xs bg-teal-500/20 px-2 py-1 rounded-full text-teal-400">Intermediário</span>
+            </li>
+            <li class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-teal-400 text-sm"></i>
+                <span>Microserviços</span>
+              </div>
+              <span class="text-xs bg-teal-500/20 px-2 py-1 rounded-full text-teal-400">Intermediário</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto Moderno Melhorado -->
+  <section id="contacto" class="py-32 relative">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-black mb-4 text-center">
+        <span class="gradient-text">Vamos Conversar</span>
+      </h2>
+      <p class="text-center text-slate-400 mb-16 max-w-2xl mx-auto">Estou disponível para novos projetos, colaborações e oportunidades</p>
+
+      <div class="glass-card p-12 rounded-3xl" data-aos="zoom-in">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Informações de contato melhoradas -->
+          <div>
+            <h3 class="text-2xl font-bold mb-8 flex items-center gap-2">
+              <i class="fas fa-paper-plane text-teal-400"></i>
+              Envie uma mensagem
+            </h3>
+            
+            <div class="space-y-6">
+              <div class="flex items-center gap-4 group cursor-pointer" onclick="window.location.href='mailto:jf929897@gmail.com'">
+                <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <i class="fas fa-envelope text-white text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-400">Email</p>
+                  <p class="text-lg font-medium group-hover:text-blue-400 transition">jf929897@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 group cursor-pointer" onclick="window.location.href='tel:+2389757386'">
+                <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <i class="fas fa-phone-alt text-white text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-400">Telefone</p>
+                  <p class="text-lg font-medium group-hover:text-blue-400 transition">+238 975 7386</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 group cursor-pointer" onclick="window.open('https://www.linkedin.com/in/júnior-fernandes-6ba4a5300/', '_blank')">
+                <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <i class="fab fa-linkedin-in text-white text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-400">LinkedIn</p>
+                  <p class="text-lg font-medium group-hover:text-blue-400 transition">/in/júnior-fernandes</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Redes sociais adicionais -->
+            <div class="mt-8">
+              <p class="text-sm text-slate-400 mb-4">Siga-me nas redes sociais</p>
+              <div class="flex gap-4">
+                <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+                  <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+                  <i class="fab fa-instagram text-xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulário melhorado -->
+          <form action="mailto:jf929897@gmail.com" method="POST" enctype="text/plain" class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">Nome completo</label>
+              <input type="text" name="name" required 
+                class="w-full px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-blue-500 focus:outline-none transition hover:border-slate-600"
+                placeholder="Seu nome">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium mb-2">Email</label>
+              <input type="email" name="email" required 
+                class="w-full px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-blue-500 focus:outline-none transition hover:border-slate-600"
+                placeholder="seu@email.com">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium mb-2">Assunto</label>
+              <input type="text" name="subject" 
+                class="w-full px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-blue-500 focus:outline-none transition hover:border-slate-600"
+                placeholder="Assunto da mensagem">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium mb-2">Mensagem</label>
+              <textarea name="message" rows="5" required 
+                class="w-full px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-blue-500 focus:outline-none transition hover:border-slate-600"
+                placeholder="Sua mensagem..."></textarea>
+            </div>
+            
+            <button type="submit" 
+              class="w-full py-4 bg-gradient-to-r from-blue-600 to-teal-500 rounded-xl font-semibold hover:scale-105 transition-transform flex items-center justify-center gap-2 group">
+              <span>Enviar Mensagem</span>
+              <i class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Melhorado -->
+  <footer class="py-12 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-center md:text-left">
+          <span class="text-2xl font-black gradient-text">JF.dev</span>
+          <p class="text-sm text-slate-500 mt-2">Transformando ideias em código desde 2020</p>
+        </div>
+        
+        <div class="flex gap-8">
+          <a href="#sobre" class="text-slate-500 hover:text-blue-400 transition">Sobre</a>
+          <a href="#experiencia" class="text-slate-500 hover:text-blue-400 transition">Experiência</a>
+          <a href="#skills" class="text-slate-500 hover:text-blue-400 transition">Skills</a>
+          <a href="#contacto" class="text-slate-500 hover:text-blue-400 transition">Contacto</a>
+        </div>
+        
+        <p class="text-slate-500 text-sm">
+          © 2026 Júnior Fernandes. 
+          <span class="block md:inline">Desenvolvido com <i class="fas fa-heart text-red-500 animate-pulse"></i></span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante Melhorado -->
+  <button class="float-btn" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up text-xl"></i>
+  </button>
+
+  <script>
+    // Gerar partículas
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('span');
+        const size = Math.random() * 6 + 2;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+    createParticles();
+
+    // Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+    }
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Highlight nav links
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Efeito de digitação
+    const typingText = document.getElementById('typing-text');
+    const phrases = ['Desenvolvedor Full Stack', 'Especialista Backend', 'Arquiteto de Soluções'];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+      
+      if (isDeleting) {
+        typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeEffect, 500);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+      }
+    }
+
+    typeEffect();
+
+    // Intersection Observer para animações de entrada
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeIn');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Contador de estatísticas
+    function animateValue(element, start, end, duration) {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.textContent = Math.floor(progress * (end - start) + start) + (element.id === 'yearsExp' ? '+' : '+');
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Iniciar contadores quando a seção for visível
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateValue(document.getElementById('yearsExp'), 0, 3, 2000);
+          animateValue(document.getElementById('projectsDone'), 0, 10, 2000);
+          animateValue(document.getElementById('happyClients'), 0, 5, 2000);
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statsObserver.observe(document.querySelector('#sobre'));
+
+    // Tooltip personalizado
+    const tooltipElements = document.querySelectorAll('[data-tooltip]');
+    tooltipElements.forEach(el => {
+      el.addEventListener('mouseenter', (e) => {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'absolute bg-slate-800 text-white text-sm px-2 py-1 rounded -top-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap';
+        tooltip.textContent = e.target.dataset.tooltip;
+        e.target.style.position = 'relative';
+        e.target.appendChild(tooltip);
+      });
+      
+      el.addEventListener('mouseleave', () => {
+        const tooltip = el.querySelector('div');
+        if (tooltip) tooltip.remove();
+      });
+    });
+
+    // Loading state para o formulário
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      const button = form.querySelector('button[type="submit"]');
+      button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
+      button.disabled = true;
+      
+      // Reativar após 3 segundos (simulação)
+      setTimeout(() => {
+        button.innerHTML = 'Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i>';
+        button.disabled = false;
+      }, 3000);
+    });
+  </script>
+
+  <style>
+    /* Animações adicionais */
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+
+    /* Melhorias de hover */
+    .group:hover .group-hover\:rotate-12 {
+      transform: rotate(12deg);
+    }
+
+    .group:hover .group-hover\:scale-110 {
+      transform: scale(1.1);
+    }
+
+    .group:hover .group-hover\:translate-x-1 {
+      transform: translateX(0.25rem);
+    }
+
+    .group:hover .group-hover\:-translate-y-1 {
+      transform: translateY(-0.25rem);
+    }
+
+    /* Efeito de brilho nos cards */
+    .glass-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .glass-card:hover::after {
+      opacity: 1;
+    }
+
+    /* Melhorias de responsividade */
+    @media (max-width: 768px) {
+      .typing-effect {
+        white-space: normal;
+        border-right: none;
+        animation: none;
+      }
+      
+      .glass-card {
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Scroll suave */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Prevenção de overflow */
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+</body>
+</html>
