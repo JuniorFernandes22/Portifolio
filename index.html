@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-pt" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -403,7 +403,7 @@
       
       <!-- Texto com efeito de digitação -->
       <div class="flex-1 text-left max-w-xl">
-        <p class="text-blue-400 font-semibold mb-4 animate-bounce-slow">👋 Bem-vindo ao meu portfólio</p>
+        <p class="text-blue-400 font-semibold mb-4 animate-bounce-slow">Bem-vindo ao meu portfólio</p>
         <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
           Olá, eu sou <br />
           <span class="gradient-text text-6xl md:text-8xl">Júnior Fernandes</span>
@@ -421,22 +421,6 @@
         <p class="text-lg text-slate-300 leading-relaxed">
           Possuo carta de condução, o que facilita deslocações e compromissos profissionais.
         </p>
-
-        <!-- Estatísticas em tempo real -->
-        <div class="grid grid-cols-3 gap-4 mt-8">
-          <div class="stat-card p-4 rounded-xl text-center">
-            <div class="text-2xl font-bold gradient-text" id="yearsExp">3+</div>
-            <div class="text-xs text-slate-400">Anos de Experiência</div>
-          </div>
-          <div class="stat-card p-4 rounded-xl text-center">
-            <div class="text-2xl font-bold gradient-text" id="projectsDone">10+</div>
-            <div class="text-xs text-slate-400">Projetos Entregues</div>
-          </div>
-          <div class="stat-card p-4 rounded-xl text-center">
-            <div class="text-2xl font-bold gradient-text" id="happyClients">5+</div>
-            <div class="text-xs text-slate-400">Clientes Satisfeitos</div>
-          </div>
-        </div>
       </div>
 
       <!-- Foto + Botões com melhorias -->
@@ -480,15 +464,13 @@
 
         <!-- Redes sociais -->
         <div class="flex gap-4 mt-4">
-          <a href="https://github.com" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+          <a href="https://github.com/JuniorFernandes22" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+          <a href="https://www.linkedin.com/in/j%C3%BAnior-fernandes-6ba4a5300/" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
-            <i class="fab fa-twitter"></i>
-          </a>
+
         </div>
       </div>
     </div>
@@ -1270,14 +1252,8 @@
             <div class="mt-8">
               <p class="text-sm text-slate-400 mb-4">Siga-me nas redes sociais</p>
               <div class="flex gap-4">
-                <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+                <a href="https://github.com/JuniorFernandes22" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
                   <i class="fab fa-github text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
-                  <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
-                  <i class="fab fa-instagram text-xl"></i>
                 </a>
               </div>
             </div>
@@ -1424,7 +1400,6 @@
       });
     });
 
-    // Smooth scroll for all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1435,9 +1410,8 @@
       });
     });
 
-    // Efeito de digitação
     const typingText = document.getElementById('typing-text');
-    const phrases = ['Desenvolvedor Full Stack', 'Especialista Backend', 'Arquiteto de Soluções'];
+    const phrases = ['Desenvolvedor', 'Especialista Backend', 'Arquiteto de Soluções'];
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
