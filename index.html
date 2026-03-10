@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-pt" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
@@ -7,10 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -28,19 +27,41 @@
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
     }
 
     @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     @keyframes glow {
-      0%, 100% { filter: drop-shadow(0 0 10px rgba(59,130,246,0.5)); }
-      50% { filter: drop-shadow(0 0 20px rgba(45,212,191,0.5)); }
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 20px rgba(45, 212, 191, 0.5));
+      }
     }
 
     @keyframes slideIn {
@@ -48,6 +69,7 @@
         opacity: 0;
         transform: translateX(-30px);
       }
+
       to {
         opacity: 1;
         transform: translateX(0);
@@ -59,6 +81,7 @@
         opacity: 0;
         transform: scale(0.9);
       }
+
       to {
         opacity: 1;
         transform: scale(1);
@@ -66,8 +89,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59,130,246,0.7); }
-      50% { transform: scale(1.2); box-shadow: 0 0 20px 10px rgba(59,130,246,0.3); }
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+      }
+
+      50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px 10px rgba(59, 130, 246, 0.3);
+      }
     }
 
     @keyframes particleFloat {
@@ -75,6 +107,7 @@
         transform: translateY(100vh) scale(0);
         opacity: 1;
       }
+
       100% {
         transform: translateY(-100vh) scale(1);
         opacity: 0;
@@ -82,13 +115,25 @@
     }
 
     @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     @keyframes bounce-slow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     /* Classes de animação */
@@ -125,14 +170,17 @@
     ::-webkit-scrollbar {
       width: 10px;
     }
+
     ::-webkit-scrollbar-track {
       background: #111827;
       border-radius: 10px;
     }
+
     ::-webkit-scrollbar-thumb {
       background: linear-gradient(180deg, #3b82f6, #2dd4bf);
       border-radius: 10px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: linear-gradient(180deg, #2563eb, #14b8a6);
     }
@@ -155,7 +203,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
       transition: left 0.7s ease;
     }
 
@@ -300,12 +348,12 @@
     /* Estatísticas em tempo real */
     .stat-card {
       background: rgba(17, 25, 40, 0.5);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
     }
 
     .stat-card:hover {
-      border-color: rgba(59,130,246,0.5);
+      border-color: rgba(59, 130, 246, 0.5);
       transform: translateY(-5px);
     }
 
@@ -318,13 +366,25 @@
     }
 
     @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
     }
 
     @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #3b82f6; }
+
+      from,
+      to {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: #3b82f6;
+      }
     }
 
     /* Loading skeleton */
@@ -335,12 +395,17 @@
     }
 
     @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
     }
 
     /* ===== ADAPTAÇÕES RESPONSIVAS ===== */
-    
+
     /* Ajustes gerais para todos os tamanhos de tela */
     img {
       max-width: 100%;
@@ -357,6 +422,7 @@
 
     /* Ajustes para mobile */
     @media (max-width: 768px) {
+
       /* Ajustar padding das seções */
       section {
         padding-top: 4rem !important;
@@ -451,12 +517,15 @@
         gap: 1rem;
       }
 
-      .grid-cols-1, .grid-cols-2, .grid-cols-3 {
+      .grid-cols-1,
+      .grid-cols-2,
+      .grid-cols-3 {
         grid-template-columns: 1fr !important;
       }
 
       /* Ajustar formulário */
-      input, textarea {
+      input,
+      textarea {
         font-size: 16px !important;
       }
 
@@ -478,7 +547,8 @@
       }
 
       /* Melhorar touch targets */
-      button, a {
+      button,
+      a {
         min-height: 44px;
         min-width: 44px;
       }
@@ -598,7 +668,9 @@
         padding-bottom: 2rem;
       }
 
-      .grid-cols-1, .grid-cols-2, .grid-cols-3 {
+      .grid-cols-1,
+      .grid-cols-2,
+      .grid-cols-3 {
         grid-template-columns: repeat(2, 1fr) !important;
       }
     }
@@ -628,6 +700,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -663,7 +736,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -684,16 +757,18 @@
     }
   </style>
 </head>
+
 <body class="antialiased">
 
   <div class="progress-bar" id="progressBar"></div>
 
   <div class="particle" id="particles"></div>
 
-  <nav class="fixed top-0 left-0 right-0 md:top-6 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-full md:w-[95%] md:max-w-5xl">
+  <nav class="fixed top-0 left-0 right-0 z-50 w-full md:top-6 md:left-1/2 md:-translate-x-1/2 md:w-[95%] md:max-w-5xl">
     <div class="glass-card rounded-none md:rounded-2xl px-4 py-3 md:px-8 md:py-4">
       <div class="flex justify-between items-center">
-        <span class="text-xl md:text-2xl font-black gradient-text hover:scale-110 transition-transform cursor-pointer">JF.dev</span>
+        <span
+          class="text-xl md:text-2xl font-black gradient-text hover:scale-110 transition-transform cursor-pointer">JF.dev</span>
         <div class="hidden md:flex space-x-8">
           <a href="#sobre" class="nav-link text-sm font-medium transition">Sobre</a>
           <a href="#experiencia" class="nav-link text-sm font-medium transition">Exp.</a>
@@ -706,13 +781,14 @@
           <i class="fas fa-bars"></i>
         </button>
       </div>
-    
+
       <div id="mobileMenu" class="hidden md:hidden mt-4 flex flex-col space-y-4 py-4 border-t border-slate-700">
         <a href="#sobre" class="nav-link text-base font-medium py-2" onclick="closeMobileMenu()">Sobre</a>
         <a href="#experiencia" class="nav-link text-base font-medium py-2" onclick="closeMobileMenu()">Experiência</a>
         <a href="#formacao" class="nav-link text-base font-medium py-2" onclick="closeMobileMenu()">Formação</a>
         <a href="#skills" class="nav-link text-base font-medium py-2" onclick="closeMobileMenu()">Skills</a>
-        <a href="#conhecimentos" class="nav-link text-base font-medium py-2" onclick="closeMobileMenu()">Conhecimentos</a>
+        <a href="#conhecimentos" class="nav-link text-base font-medium py-2"
+          onclick="closeMobileMenu()">Conhecimentos</a>
         <a href="#contacto" class="nav-link text-base font-medium py-2" onclick="closeMobileMenu()">Contacto</a>
       </div>
     </div>
@@ -721,24 +797,34 @@
   <section id="sobre" class="min-h-screen relative flex items-center justify-center overflow-hidden">
     <div class="hero-overlay"></div>
 
-    <div class="hidden md:block absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-    <div class="hidden md:block absolute bottom-20 right-10 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
-  
-    <div class="hidden md:block absolute top-1/4 right-1/4 w-32 h-32 border-2 border-blue-500/20 rounded-full animate-spin-slow"></div>
-    <div class="hidden md:block absolute bottom-1/4 left-1/4 w-48 h-48 border-2 border-teal-500/20 rounded-full animate-spin-slow" style="animation-direction: reverse;"></div>
+    <div class="hidden md:block absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse">
+    </div>
+    <div
+      class="hidden md:block absolute bottom-20 right-10 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl animate-pulse animation-delay-2000">
+    </div>
+
+    <div
+      class="hidden md:block absolute top-1/4 right-1/4 w-32 h-32 border-2 border-blue-500/20 rounded-full animate-spin-slow">
+    </div>
+    <div
+      class="hidden md:block absolute bottom-1/4 left-1/4 w-48 h-48 border-2 border-teal-500/20 rounded-full animate-spin-slow"
+      style="animation-direction: reverse;"></div>
 
     <div class="absolute inset-0 z-0">
-      <img src="assets/sobre.png" alt="Background" class="w-full h-full object-cover opacity-30" style="filter: blur(2px);" loading="lazy" />
+      <img src="assets/sobre.png" alt="Background" class="w-full h-full object-cover opacity-30"
+        style="filter: blur(2px);" loading="lazy" />
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030712]"></div>
     </div>
 
-    <div class="relative z-10 px-4 md:px-6 max-w-7xl mx-auto page-transition flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 pt-24 md:pt-40">
-    
+    <div
+      class="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto page-transition flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 pt-28 md:pt-40">
+
       <div class="flex-1 text-left md:text-left max-w-xl">
-        <p class="text-blue-400 font-semibold mb-4 animate-bounce-slow text-sm md:text-base">Bem-vindo ao meu portfólio</p>
+        <p class="text-blue-400 font-semibold mb-4 animate-bounce-slow text-sm md:text-base">Bem-vindo ao meu portfólio
+        </p>
         <h1 class="text-4xl md:text-7xl font-black mb-4 md:mb-6 leading-tight">
           Olá, eu sou <br />
-          <span class="gradient-text text-5xl md:text-8xl">Júnior Fernandes</span>
+          <span class="gradient-text text-4xl sm:text-5xl md:text-8xl">Júnior Fernandes</span>
         </h1>
 
         <div class="text-lg md:text-2xl text-slate-300 mb-4 md:mb-6 min-h-[60px] md:h-20">
@@ -746,7 +832,7 @@
         </div>
 
         <p class="text-base md:text-lg text-slate-300 mb-4 md:mb-6 leading-relaxed">
-          Desenvolvedor de Software especializado em criar soluções robustas de Backend e 
+          Desenvolvedor de Software especializado em criar soluções robustas de Backend e
           interfaces modernas. Tenho também conhecimento em Elasticsearch e Kibana para análise e visualização de dados.
         </p>
 
@@ -757,44 +843,43 @@
 
       <div class="flex flex-col items-center md:items-start gap-4 md:gap-6 mt-8 md:mt-20">
         <div class="relative inline-block animate-float w-32 h-32 md:w-64 md:h-64">
-          <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-teal-400 blur-3xl opacity-50 animate-pulse"></div>
-        
-          <div class="hidden md:block absolute -inset-3 rounded-full border-2 border-dashed border-blue-500/30 animate-spin-slow"></div>
+          <div
+            class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-teal-400 blur-3xl opacity-50 animate-pulse">
+          </div>
 
-          <img
-            src="assets/perfil.png"
-            alt="Júnior Fernandes"
+          <div
+            class="hidden md:block absolute -inset-3 rounded-full border-2 border-dashed border-blue-500/30 animate-spin-slow">
+          </div>
+
+          <img src="assets/perfil.png" alt="Júnior Fernandes"
             class="relative w-full h-full rounded-full object-cover border-4 border-transparent bg-gradient-to-r from-blue-500 to-teal-400 p-1 animate-glow"
-            loading="lazy"
-          />
+            loading="lazy" />
         </div>
 
-        <div class="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
-          <a
-            href="#contacto"
-            class="group relative px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold overflow-hidden text-sm md:text-base"
-          >
-            <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-500 transition-transform group-hover:scale-105"></span>
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start">
+          <a href="#contacto"
+            class="group relative px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold overflow-hidden text-sm md:text-base">
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-500 transition-transform group-hover:scale-105"></span>
             <span class="relative text-white flex items-center gap-2">
               Contrate-me
               <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
             </span>
           </a>
 
-          <a
-            href="Junior.pdf"
-            target="_blank"
-            class="glass-card px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold flex items-center gap-2 hover:border-blue-500 group text-sm md:text-base"
-          >
+          <a href="Junior.pdf" target="_blank"
+            class="glass-card px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold flex items-center gap-2 hover:border-blue-500 group text-sm md:text-base">
             <i class="fas fa-download group-hover:animate-bounce"></i> Ver Currículo
           </a>
         </div>
 
         <div class="flex gap-3 md:gap-4 mt-4">
-          <a href="https://github.com/JuniorFernandes22" target="_blank" class="w-9 h-9 md:w-10 md:h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+          <a href="https://github.com/JuniorFernandes22" target="_blank"
+            class="w-9 h-9 md:w-10 md:h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
             <i class="fab fa-github text-sm md:text-base"></i>
           </a>
-          <a href="https://www.linkedin.com/in/j%C3%BAnior-fernandes-6ba4a5300/" target="_blank" class="w-9 h-9 md:w-10 md:h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+          <a href="https://www.linkedin.com/in/j%C3%BAnior-fernandes-6ba4a5300/" target="_blank"
+            class="w-9 h-9 md:w-10 md:h-10 glass-card rounded-full flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
             <i class="fab fa-linkedin-in text-sm md:text-base"></i>
           </a>
         </div>
@@ -803,17 +888,19 @@
   </section>
 
   <section id="experiencia" class="py-16 md:py-32 relative">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-5xl font-black mb-4 text-center">
         <span class="gradient-text">Trajetória Profissional</span>
       </h2>
-      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Minha jornada no desenvolvimento de software e contribuições para projetos inovadores</p>
+      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Minha jornada no
+        desenvolvimento de software e contribuições para projetos inovadores</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-    
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+
         <div class="glass-card p-6 md:p-8 rounded-2xl group">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-lightbulb text-white text-sm md:text-base"></i>
             </div>
           </div>
@@ -837,7 +924,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-rocket text-white text-sm md:text-base"></i>
             </div>
           </div>
@@ -861,7 +949,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-university text-white text-sm md:text-base"></i>
             </div>
           </div>
@@ -869,8 +958,12 @@
           <p class="text-blue-400 mb-2 text-sm md:text-base">Caixa Económica de Cabo Verde</p>
           <p class="text-xs text-slate-500 mb-3">Projeto: <span class="text-teal-400">KnowHow</span></p>
           <ul class="space-y-2 md:space-y-3 text-slate-300 text-sm md:text-base">
-            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i> <span>Desenvolvimento frontend com React.js e Material UI.</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i> <span>Implementação de componentes reutilizáveis e melhoria UX.</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i>
+              <span>Desenvolvimento frontend com React.js e Material UI.</span>
+            </li>
+            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i>
+              <span>Implementação de componentes reutilizáveis e melhoria UX.</span>
+            </li>
           </ul>
           <div class="flex flex-wrap gap-2 mt-4 md:mt-6">
             <span class="px-2 py-1 bg-blue-500/10 rounded text-xs text-blue-400">React</span>
@@ -880,7 +973,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-building text-white text-sm md:text-base"></i>
             </div>
           </div>
@@ -888,8 +982,12 @@
           <p class="text-purple-400 mb-2 text-sm md:text-base">Banco Económico (NOSI Akademia)</p>
           <p class="text-xs text-slate-500 mb-3">Projeto: <span class="text-teal-400">Caixa Pay</span></p>
           <ul class="space-y-2 md:space-y-3 text-slate-300 text-sm md:text-base">
-            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i> <span>APIs REST seguras com Java e Spring Boot.</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i> <span>Gestão de transações financeiras com PostgreSQL.</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i>
+              <span>APIs REST seguras com Java e Spring Boot.</span>
+            </li>
+            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i>
+              <span>Gestão de transações financeiras com PostgreSQL.</span>
+            </li>
           </ul>
           <div class="flex flex-wrap gap-2 mt-4 md:mt-6">
             <span class="px-2 py-1 bg-purple-500/10 rounded text-xs text-purple-400">Java</span>
@@ -899,28 +997,36 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-chart-line text-white text-sm md:text-base"></i>
             </div>
           </div>
           <h3 class="text-xl md:text-2xl font-bold mb-2">Analista de Sistemas</h3>
           <p class="text-green-400 mb-2 text-sm md:text-base">OpenTec</p>
           <ul class="space-y-2 md:space-y-3 text-slate-300 text-sm md:text-base">
-            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i> <span>Migração para plataforma IGRP da NOSI.</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i> <span>Elaboração de relatórios técnicos de base de dados.</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i>
+              <span>Migração para plataforma IGRP da NOSI.</span>
+            </li>
+            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i>
+              <span>Elaboração de relatórios técnicos de base de dados.</span>
+            </li>
           </ul>
         </div>
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-chalkboard-teacher text-white text-sm md:text-base"></i>
             </div>
           </div>
           <h3 class="text-xl md:text-2xl font-bold mb-2">Formador</h3>
           <p class="text-yellow-400 mb-2 text-sm md:text-base">CERMI - Praia</p>
           <ul class="space-y-2 md:space-y-3 text-slate-300 text-sm md:text-base">
-            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i> <span>Módulo "Competência de Empreender".</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-chevron-right text-teal-400 mt-1 text-xs"></i>
+              <span>Módulo "Competência de Empreender".</span>
+            </li>
           </ul>
         </div>
 
@@ -929,17 +1035,19 @@
   </section>
 
   <section id="formacao" class="py-16 md:py-32 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-5xl font-black mb-4 text-center">
         <span class="gradient-text">Formação</span>
       </h2>
-      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Minha jornada acadêmica e certificações profissionais</p>
+      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Minha jornada acadêmica
+        e certificações profissionais</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-      
+
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-right">
           <div class="flex flex-col md:flex-row items-start gap-4">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+            <div
+              class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
               <i class="fas fa-graduation-cap text-xl md:text-2xl text-white"></i>
             </div>
             <div class="w-full">
@@ -947,26 +1055,23 @@
                 <h3 class="text-xl md:text-2xl font-bold">Licenciatura em Informática de Gestão</h3>
               </div>
               <p class="text-blue-400 mb-1 text-sm md:text-base">Universidade Jean Piaget de Cabo Verde</p>
-              <a href="https://www.unipiaget.edu.cv/" target="_blank" class="text-xs text-slate-500 hover:text-blue-300 transition mb-4 inline-block">
+              <a href="https://www.unipiaget.edu.cv/" target="_blank"
+                class="text-xs text-slate-500 hover:text-blue-300 transition mb-4 inline-block">
                 <i class="fas fa-link mr-1"></i> unipiaget.edu.cv
               </a>
-            
+
               <div class="space-y-2 text-sm text-slate-300 border-t border-slate-700/50 pt-4">
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Análise, conceção e implementação de sistemas de informação.</p>
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Programação em várias linguagens e frameworks.</p>
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Gestão de bases de dados relacionais e modelação de dados.</p>
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Desenvolvimento de aplicações web e mobile.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i>
+                  Análise, conceção e implementação de sistemas de informação.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i>
+                  Programação em várias linguagens e frameworks.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Gestão
+                  de bases de dados relacionais e modelação de dados.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i>
+                  Desenvolvimento de aplicações web e mobile.</p>
               </div>
 
               <div class="mt-4 flex items-center gap-4">
-                <div class="flex items-center gap-1">
-                  <i class="fas fa-star text-yellow-500 text-xs"></i>
-                  <span class="text-xs text-slate-400">Média: 16/20</span>
-                </div>
-                <div class="flex items-center gap-1">
-                  <i class="fas fa-clock text-blue-500 text-xs"></i>
-                  <span class="text-xs text-slate-400">240 Créditos ECTS</span>
-                </div>
               </div>
             </div>
           </div>
@@ -974,7 +1079,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-left">
           <div class="flex flex-col md:flex-row items-start gap-4">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+            <div
+              class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
               <i class="fas fa-chalkboard-teacher text-xl md:text-2xl text-white"></i>
             </div>
             <div class="w-full">
@@ -982,16 +1088,21 @@
                 <h3 class="text-xl md:text-2xl font-bold">Formação Pedagógica Inicial</h3>
               </div>
               <p class="text-yellow-400 mb-4 text-sm md:text-base">Jean Piaget University of Cape Verde</p>
-            
+
               <div class="space-y-2 text-sm text-slate-300 border-t border-slate-700/50 pt-4">
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i> Fundamentos teóricos e práticos da educação e ensino.</p>
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i> Planeamento e gestão de atividades pedagógicas.</p>
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i> Desenvolvimento de estratégias de aprendizagem adaptadas.</p>
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i> Avaliação de desempenho e progresso de aprendentes.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i>
+                  Fundamentos teóricos e práticos da educação e ensino.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i>
+                  Planeamento e gestão de atividades pedagógicas.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i>
+                  Desenvolvimento de estratégias de aprendizagem adaptadas.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-yellow-500 mt-1 text-xs"></i>
+                  Avaliação de desempenho e progresso de aprendentes.</p>
               </div>
 
               <div class="mt-4">
-                <span class="px-3 py-1 bg-yellow-500/10 rounded-full text-xs text-yellow-400">Certificado pelo MEC</span>
+                <span class="px-3 py-1 bg-yellow-500/10 rounded-full text-xs text-yellow-400">Certificado pelo
+                  IEFP</span>
               </div>
             </div>
           </div>
@@ -999,7 +1110,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-right" data-aos-delay="100">
           <div class="flex flex-col md:flex-row items-start gap-4">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+            <div
+              class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
               <i class="fas fa-robot text-xl md:text-2xl text-white"></i>
             </div>
             <div>
@@ -1008,12 +1120,15 @@
               </div>
               <p class="text-teal-400 mb-4 text-sm md:text-base">IBM SkillsBuild (NOSi Akademia)</p>
               <div class="space-y-2 text-slate-300 text-sm md:text-base">
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Machine Learning e Redes Neurais.</p>
-                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Ética em IA e aplicações práticas.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Machine
+                  Learning e Redes Neurais.</p>
+                <p class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-400 mt-1 text-xs"></i> Ética
+                  em IA e aplicações práticas.</p>
               </div>
-            
+
               <div class="mt-4">
-                <img src="https://img.icons8.com/color/48/000000/ibm.png" alt="IBM" class="w-6 h-6 md:w-8 md:h-8 opacity-50 grayscale hover:grayscale-0 transition-all">
+                <img src="https://img.icons8.com/color/48/000000/ibm.png" alt="IBM"
+                  class="w-6 h-6 md:w-8 md:h-8 opacity-50 grayscale hover:grayscale-0 transition-all">
               </div>
             </div>
           </div>
@@ -1021,7 +1136,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-left" data-aos-delay="100">
           <div class="flex flex-col md:flex-row items-start gap-4 mb-6">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+            <div
+              class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
               <i class="fas fa-users-cog text-xl md:text-2xl text-white"></i>
             </div>
             <div>
@@ -1032,22 +1148,29 @@
           </div>
 
           <div class="grid grid-cols-2 gap-2 md:gap-3">
-            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+            <div
+              class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
               <i class="fas fa-brain text-pink-400 text-xs"></i> <span class="text-xs">Inteligência Emocional</span>
             </div>
-            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
-              <i class="fas fa-lightbulb text-yellow-400 text-xs"></i> <span class="text-xs">Arte de Criar e Inovar</span>
+            <div
+              class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+              <i class="fas fa-lightbulb text-yellow-400 text-xs"></i> <span class="text-xs">Arte de Criar e
+                Inovar</span>
             </div>
-            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+            <div
+              class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
               <i class="fas fa-comments text-blue-400 text-xs"></i> <span class="text-xs">Arte de Comunicar</span>
             </div>
-            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+            <div
+              class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
               <i class="fas fa-rocket text-orange-400 text-xs"></i> <span class="text-xs">Empreendedorismo</span>
             </div>
-            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+            <div
+              class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
               <i class="fas fa-leaf text-green-400 text-xs"></i> <span class="text-xs">Gestão de Stress</span>
             </div>
-            <div class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
+            <div
+              class="flex items-center gap-2 p-2 bg-slate-800/40 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all">
               <i class="fas fa-globe text-purple-400 text-xs"></i> <span class="text-xs">International Career</span>
             </div>
           </div>
@@ -1057,22 +1180,24 @@
   </section>
 
   <section id="skills" class="py-16 md:py-32 relative">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-5xl font-black mb-4 text-center">
         <span class="gradient-text">Stack Tecnológico</span>
       </h2>
-      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Tecnologias que domino e utilizo no meu dia a dia</p>
+      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Tecnologias que domino
+        e utilizo no meu dia a dia</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="zoom-in">
           <div class="relative mb-6">
-            <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
+            <div
+              class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
               <i class="fas fa-server text-2xl md:text-3xl text-white"></i>
             </div>
             <div class="absolute -top-2 -right-2 w-4 h-4 md:w-6 md:h-6 bg-green-500 rounded-full animate-pulse"></div>
           </div>
           <h3 class="text-xl md:text-2xl font-bold mb-4 text-center">Backend</h3>
-        
+
           <div class="space-y-4">
             <div>
               <div class="flex justify-between text-sm mb-1">
@@ -1117,13 +1242,14 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="zoom-in" data-aos-delay="100">
           <div class="relative mb-6">
-            <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-teal-500 to-green-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
+            <div
+              class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-teal-500 to-green-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
               <i class="fas fa-code text-2xl md:text-3xl text-white"></i>
             </div>
             <div class="absolute -top-2 -right-2 w-4 h-4 md:w-6 md:h-6 bg-green-500 rounded-full animate-pulse"></div>
           </div>
           <h3 class="text-xl md:text-2xl font-bold mb-4 text-center">Frontend</h3>
-        
+
           <div class="space-y-4">
             <div>
               <div class="flex justify-between text-sm mb-1">
@@ -1165,13 +1291,14 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="zoom-in" data-aos-delay="200">
           <div class="relative mb-6">
-            <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
+            <div
+              class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform mx-auto">
               <i class="fas fa-cloud text-2xl md:text-3xl text-white"></i>
             </div>
             <div class="absolute -top-2 -right-2 w-4 h-4 md:w-6 md:h-6 bg-green-500 rounded-full animate-pulse"></div>
           </div>
           <h3 class="text-xl md:text-2xl font-bold mb-4 text-center">DevOps</h3>
-        
+
           <div class="space-y-4">
             <div>
               <div class="flex justify-between text-sm mb-1">
@@ -1215,17 +1342,19 @@
   </section>
 
   <section id="conhecimentos" class="py-16 md:py-32 relative">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-5xl font-black mb-4 text-center">
         <span class="gradient-text">Conhecimentos Técnicos</span>
       </h2>
-      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Especializações e áreas de expertise</p>
+      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Especializações e áreas
+        de expertise</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-up">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-server text-xl md:text-2xl text-white"></i>
             </div>
             <div>
@@ -1268,7 +1397,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="100">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-code text-xl md:text-2xl text-white"></i>
             </div>
             <div>
@@ -1311,7 +1441,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="200">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-database text-xl md:text-2xl text-white"></i>
             </div>
             <div>
@@ -1347,7 +1478,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="300">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-chart-line text-xl md:text-2xl text-white"></i>
             </div>
             <div>
@@ -1376,7 +1508,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="400">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-tools text-xl md:text-2xl text-white"></i>
             </div>
             <div>
@@ -1412,7 +1545,8 @@
 
         <div class="glass-card p-6 md:p-8 rounded-2xl group" data-aos="fade-up" data-aos-delay="500">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+            <div
+              class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
               <i class="fas fa-project-diagram text-xl md:text-2xl text-white"></i>
             </div>
             <div>
@@ -1454,29 +1588,35 @@
       <h2 class="text-3xl md:text-5xl font-black mb-4 text-center">
         <span class="gradient-text">Vamos Conversar</span>
       </h2>
-      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Estou disponível para novos projetos, colaborações e oportunidades</p>
+      <p class="text-center text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto text-sm md:text-base">Estou disponível para
+        novos projetos, colaborações e oportunidades</p>
 
       <div class="glass-card p-6 md:p-12 rounded-2xl md:rounded-3xl" data-aos="zoom-in">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           <div>
             <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center gap-2">
               <i class="fas fa-paper-plane text-teal-400"></i>
               Envie uma mensagem
             </h3>
-          
+
             <div class="space-y-6">
-              <div class="flex items-center gap-4 group cursor-pointer" onclick="window.location.href='mailto:jf929897@gmail.com'">
-                <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div class="flex items-center gap-4 group cursor-pointer"
+                onclick="window.location.href='mailto:jf929897@gmail.com'">
+                <div
+                  class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <i class="fas fa-envelope text-white text-lg md:text-xl"></i>
                 </div>
                 <div>
                   <p class="text-xs text-slate-400">Email</p>
-                  <p class="text-base md:text-lg font-medium group-hover:text-blue-400 transition">jf929897@gmail.com</p>
+                  <p class="text-base md:text-lg font-medium group-hover:text-blue-400 transition">jf929897@gmail.com
+                  </p>
                 </div>
               </div>
 
-              <div class="flex items-center gap-4 group cursor-pointer" onclick="window.location.href='tel:+2389757386'">
-                <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div class="flex items-center gap-4 group cursor-pointer"
+                onclick="window.location.href='tel:+2389757386'">
+                <div
+                  class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <i class="fas fa-phone-alt text-white text-lg md:text-xl"></i>
                 </div>
                 <div>
@@ -1485,13 +1625,16 @@
                 </div>
               </div>
 
-              <div class="flex items-center gap-4 group cursor-pointer" onclick="window.open('https://www.linkedin.com/in/j%C3%BAnior-fernandes-6ba4a5300/', '_blank')">
-                <div class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div class="flex items-center gap-4 group cursor-pointer"
+                onclick="window.open('https://www.linkedin.com/in/j%C3%BAnior-fernandes-6ba4a5300/', '_blank')">
+                <div
+                  class="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <i class="fab fa-linkedin-in text-white text-lg md:text-xl"></i>
                 </div>
                 <div>
                   <p class="text-xs text-slate-400">LinkedIn</p>
-                  <p class="text-base md:text-lg font-medium group-hover:text-blue-400 transition">/in/júnior-fernandes</p>
+                  <p class="text-base md:text-lg font-medium group-hover:text-blue-400 transition">/in/júnior-fernandes
+                  </p>
                 </div>
               </div>
             </div>
@@ -1499,7 +1642,8 @@
             <div class="mt-8">
               <p class="text-xs text-slate-400 mb-4">Siga-me nas redes sociais</p>
               <div class="flex gap-4">
-                <a href="https://github.com/JuniorFernandes22" class="w-10 h-10 md:w-12 md:h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
+                <a href="https://github.com/JuniorFernandes22"
+                  class="w-10 h-10 md:w-12 md:h-12 glass-card rounded-xl flex items-center justify-center hover:border-blue-500 transition-all hover:scale-110">
                   <i class="fab fa-github text-lg md:text-xl"></i>
                 </a>
               </div>
@@ -1509,36 +1653,37 @@
           <form action="mailto:jf929897@gmail.com" method="POST" enctype="text/plain" class="space-y-6">
             <div>
               <label class="block text-xs md:text-sm font-medium mb-2">Nome completo</label>
-              <input type="text" name="name" required 
+              <input type="text" name="name" required
                 class="w-full px-4 py-2 md:py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-blue-500 focus:outline-none transition hover:border-slate-600 text-sm md:text-base"
                 placeholder="Seu nome">
             </div>
-          
+
             <div>
               <label class="block text-xs md:text-sm font-medium mb-2">Email</label>
-              <input type="email" name="email" required 
+              <input type="email" name="email" required
                 class="w-full px-4 py-2 md:py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-blue-500 focus:outline-none transition hover:border-slate-600 text-sm md:text-base"
                 placeholder="seu@email.com">
             </div>
-          
+
             <div>
               <label class="block text-xs md:text-sm font-medium mb-2">Assunto</label>
-              <input type="text" name="subject" 
+              <input type="text" name="subject"
                 class="w-full px-4 py-2 md:py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-blue-500 focus:outline-none transition hover:border-slate-600 text-sm md:text-base"
                 placeholder="Assunto da mensagem">
             </div>
-          
+
             <div>
               <label class="block text-xs md:text-sm font-medium mb-2">Mensagem</label>
-              <textarea name="message" rows="5" required 
+              <textarea name="message" rows="5" required
                 class="w-full px-4 py-2 md:py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-blue-500 focus:outline-none transition hover:border-slate-600 text-sm md:text-base"
                 placeholder="Sua mensagem..."></textarea>
             </div>
-          
-            <button type="submit" 
+
+            <button type="submit"
               class="w-full py-3 md:py-4 bg-gradient-to-r from-blue-600 to-teal-500 rounded-xl font-semibold hover:scale-105 transition-transform flex items-center justify-center gap-2 group text-sm md:text-base">
               <span>Enviar Mensagem</span>
-              <i class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+              <i
+                class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
             </button>
           </form>
         </div>
@@ -1553,16 +1698,17 @@
           <span class="text-xl md:text-2xl font-black gradient-text">JF.dev</span>
           <p class="text-xs text-slate-500 mt-2">Transformando ideias em código desde 2020</p>
         </div>
-      
+
         <div class="flex gap-4 md:gap-8">
           <a href="#sobre" class="text-xs md:text-sm text-slate-500 hover:text-blue-400 transition">Sobre</a>
-          <a href="#experiencia" class="text-xs md:text-sm text-slate-500 hover:text-blue-400 transition">Experiência</a>
+          <a href="#experiencia"
+            class="text-xs md:text-sm text-slate-500 hover:text-blue-400 transition">Experiência</a>
           <a href="#skills" class="text-xs md:text-sm text-slate-500 hover:text-blue-400 transition">Skills</a>
           <a href="#contacto" class="text-xs md:text-sm text-slate-500 hover:text-blue-400 transition">Contacto</a>
         </div>
-      
+
         <p class="text-slate-500 text-xs">
-          © 2026 Júnior Fernandes. 
+          © 2026 Júnior Fernandes.
           <span class="block md:inline">Desenvolvido com <i class="fas fa-heart text-red-500 animate-pulse"></i></span>
         </p>
       </div>
@@ -1578,7 +1724,7 @@
       const particlesContainer = document.getElementById('particles');
       const isMobile = window.innerWidth <= 768;
       const particleCount = isMobile ? 15 : 50;
-      
+
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('span');
         const size = Math.random() * 6 + 2;
@@ -1592,7 +1738,7 @@
     }
     createParticles();
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       const particlesContainer = document.getElementById('particles');
       particlesContainer.innerHTML = '';
       createParticles();
@@ -1669,7 +1815,7 @@
     // Typing effect
     const typingText = document.getElementById('typing-text');
     const isMobile = window.innerWidth <= 768;
-    
+
     if (!isMobile) {
       const phrases = ['Desenvolvedor', 'Especialista Backend', 'Arquiteto de Soluções'];
       let phraseIndex = 0;
@@ -1678,7 +1824,7 @@
 
       function typeEffect() {
         const currentPhrase = phrases[phraseIndex];
-      
+
         if (isDeleting) {
           typingText.textContent = currentPhrase.substring(0, charIndex - 1);
           charIndex--;
@@ -1728,7 +1874,7 @@
         const button = form.querySelector('button[type="submit"]');
         button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
         button.disabled = true;
-      
+
         setTimeout(() => {
           button.innerHTML = 'Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i>';
           button.disabled = false;
@@ -1747,6 +1893,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -1780,7 +1927,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -1799,10 +1946,38 @@
     }
 
     @media (max-width: 768px) {
-      input, textarea, select {
+
+      input,
+      textarea,
+      select {
         font-size: 16px !important;
       }
     }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width:768px) {
+      .glass-card {
+        margin-bottom: 12px;
+      }
+    }
+
+    @media (max-width:768px) {
+
+      .blur-3xl {
+        filter: blur(40px);
+      }
+
+      .animate-spin-slow {
+        display: none;
+      }
+
+    }
   </style>
 </body>
+
 </html>
